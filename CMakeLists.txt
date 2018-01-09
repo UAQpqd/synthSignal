@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.6)
+project(SynthSignal)
+set(SOURCE_FILES SineWaveform.cpp SineWaveform.hpp Signal.cpp Signal.hpp Interpolation.cpp Interpolation.hpp)
+add_library(SynthSignal ${SOURCE_FILES})
+
+find_package(GTest REQUIRED)
+include_directories(${GTEST_INCLUDE_DIRS})
+set(TEST_SOURCE_FILES InterpolationTest.cpp)
+enable_testing()
+add_executable(SynthSignalTest ${TEST_SOURCE_FILES})
+target_link_libraries(SynthSignalTest SynthSignal)
+target_link_libraries(SynthSignalTest ${GTEST_LIBRARY})
+add_test(NAME tests COMMAND SynthSignalTest)
