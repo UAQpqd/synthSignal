@@ -4,7 +4,7 @@
 namespace SynthSignal {
     class InterpolationRectangle : public ::testing::Test {
     public:
-        Interpolation *interpolation;
+        Interpolation *interpolation = nullptr;
 
         void SetUp() override {
             interpolation = new Interpolation();
@@ -19,7 +19,7 @@ namespace SynthSignal {
 
     class InterpolationTrapezoid : public ::testing::Test {
     public:
-        Interpolation *interpolation;
+        Interpolation *interpolation = nullptr;
 
         void SetUp() override {
             interpolation = new Interpolation();
@@ -71,9 +71,4 @@ namespace SynthSignal {
         interpolation.addPoint(4.0f, 0.0f);
         ASSERT_THROW(interpolation.factorAt(2.0f),UnimplementedInterpolationType);
     }
-}
-
-int main(int argc, char **argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }

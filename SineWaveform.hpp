@@ -7,13 +7,14 @@
 
 #include <vector>
 #include <cstddef>
+#include "Event.hpp"
 
 namespace SynthSignal {
-    class SineWaveform {
+    struct SineWaveform : public Event {
     public:
         SineWaveform(float inA, float inOmega, float inPhi) :
+        Event(EventType::SineWaveform),
         a(inA), omega(inOmega), phi(inPhi) {};
-        ~SineWaveform() = default;
         float a;
         float omega;
         float phi;

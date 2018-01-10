@@ -1,0 +1,6 @@
+df = read.csv('CheckWaveformIsGenerated.csv')
+pdf('CheckWaveformIsGenerated.pdf')
+plot(df$time,df$amplitude,type='l',main='CheckWaveformIsGenerated',xlab='time (s)',ylab='amplitude (V)')
+grid()
+dev.off()
+shell.exec('CheckWaveformIsGenerated.pdf')
