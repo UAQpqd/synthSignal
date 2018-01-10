@@ -10,14 +10,20 @@
 #include "Event.hpp"
 
 namespace SynthSignal {
-    struct SineWaveform : public Event {
+    class SineWaveform : public Event {
     public:
-        SineWaveform(float inA, float inOmega, float inPhi) :
-        Event(EventType::SineWaveform),
-        a(inA), omega(inOmega), phi(inPhi) {};
+        SineWaveform(float inA, float inOmega, float inPhi, Interpolation inFrequencyVariation = Interpolation()) :
+                Event(EventType::SineWaveform),
+                a(inA), omega(inOmega), phi(inPhi), frequencyVariation(inFrequencyVariation) {};
+
+        ~SineWaveform() {};
+
+        void interpolate(std::vector<float> *data, const size_t sps, const Interpolation interpolation);
+
         float a;
         float omega;
         float phi;
+        Interpolation frequencyVariation;
     };
 }
 

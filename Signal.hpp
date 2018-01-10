@@ -7,9 +7,18 @@
 
 #include "SineWaveform.hpp"
 #include "WhiteNoise.hpp"
+#include "SagSwellInterruption.hpp"
 #include "Interpolation.hpp"
+#include <exception>
+#include <cmath>
+#include <fstream>
 
 namespace SynthSignal {
+    class NotRecognizedEventType: public std::exception {
+        const char* what() const throw() override {
+            return "Not recognized event type";
+        }
+    };
     class Signal {
     public:
         Signal() = default;

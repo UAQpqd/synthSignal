@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.6)
 project(SynthSignal)
-set(SOURCE_FILES SineWaveform.hpp Signal.cpp Signal.hpp Interpolation.cpp Interpolation.hpp WhiteNoise.hpp Event.hpp)
+set(SOURCE_FILES SineWaveform.hpp Signal.cpp Signal.hpp Interpolation.cpp Interpolation.hpp WhiteNoise.hpp Event.hpp SineWaveform.cpp WhiteNoise.cpp SagSwellInterruption.cpp SagSwellInterruption.hpp)
 add_library(SynthSignal ${SOURCE_FILES})
 
 find_package(GTest REQUIRED)

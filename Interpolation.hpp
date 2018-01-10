@@ -33,7 +33,8 @@ namespace SynthSignal {
 
         ~Interpolation() = default;
         bool addPoint(const float &time, const float &factor);
-        float factorAt(float time);
+        float factorAt (const float time, bool zeroPadding = false) const;
+        std::pair<float,float> getInterval() const;
 
         std::map<float, float> points;
         InterpolationType type;
